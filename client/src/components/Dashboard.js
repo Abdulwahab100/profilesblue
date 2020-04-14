@@ -227,7 +227,7 @@ const Dashboard = ({
 
             <div className="col-12 text-center r3" width="200">
               <QRCode
-                value={`https://profileblue.herokuapp.com/profile/${user._id}`}
+                value={`https://profilesblue.herokuapp.com/profile/${user._id}`}
               />
             </div>
             <div className="col-12 text-center r4">

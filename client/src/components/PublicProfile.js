@@ -117,7 +117,7 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
                 <p id="bio">{user.bio}</p>
                 <div className="col-12" id="btnDownloadVcard">
                   <a
-                    href={`https://profileblue.herokuapp.com/api/users/vcf/${user._id}`}
+                    href={`https://profilesblue.herokuapp.com/api/users/vcf/${user._id}`}
                     download
                     className="btn"
                   >
@@ -226,7 +226,7 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
 
             <div className="col-12 text-center r3" width="200">
               <QRCode
-                value={`https://profileblue.herokuapp.com/profile/${user._id}`}
+                value={`https://profilesblue.herokuapp.com/profile/${user._id}`}
               />
             </div>
             <div className="col-12 text-center r4">
