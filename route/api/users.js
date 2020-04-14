@@ -55,7 +55,7 @@ router.get('/current/:id', async (req, res) => {
     if (!user)
       return res.status(400).json({ msg: 'there is no user for this user' });
 
-    //  Enable the code below to make sure that one user only give one view 
+    //  Enable the code below to make sure that one user only give one view
     //  and on refresh views wont increase!
 
     // const ip = req.connection.remoteAddress;
@@ -181,7 +181,7 @@ router.get('/vcf/:id', async (req, res) => {
     if (user.social.address.value)
       vCard.homeAddress.city = user.social.address.value;
     if (user.social.phone.value) vCard.cellPhone = user.social.phone.value;
-    vCard.url = `https://profileblue.herokuapp.com/profile/${user._id}`;
+    vCard.url = `https://profilesblue.herokuapp.com/profile/${user._id}`;
     vCard.workUrl = `https://www.instagram.com/${user.social['instagram']}`;
     vCard.workUrl = `http://open.${'snapchat'}.com/add/${
       user.social['snapchat']

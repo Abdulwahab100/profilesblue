@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Link, Redirect, useParams } from "react-router-dom";
-import { connect } from "react-redux";
-import { logout } from "../actions/registerUser";
-import axios from "axios";
-import Footer from "./Footer";
-import Spinner from "./Spinner";
-import download from "../assets/download.png";
-var QRCode = require("qrcode.react");
+import React, { useEffect, useState } from 'react';
+import { Link, Redirect, useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../actions/registerUser';
+import axios from 'axios';
+import Footer from './Footer';
+import Spinner from './Spinner';
+import download from '../assets/download.png';
+var QRCode = require('qrcode.react');
 
 const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
   const { id } = useParams();
   const [user, setuser] = useState();
-  const [show, setshow] = useState("show1");
+  const [show, setshow] = useState('show1');
 
   useEffect(() => {
     (() =>
@@ -23,7 +23,7 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
   const handleClicks = async (name) => {
     const config = {
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
     };
 
@@ -43,23 +43,23 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
 
   const getLink = (username) => {
     if (user.social[username]) {
-      if (username === "spotify")
+      if (username === 'spotify')
         return `http://open.${username}.com/add/${user.social[username].value}`;
-      else if (username === "snapchat")
+      else if (username === 'snapchat')
         return `http://${username}.com/add/${user.social[username].value}`;
-      else if (username === "address")
+      else if (username === 'address')
         return `https://www.google.com/maps/place/${user.social[username].value}`;
-      else if (username === "phone")
+      else if (username === 'phone')
         return `tel:+92${user.social[username].value}`;
-      else if (username === "s_email")
+      else if (username === 's_email')
         return `mailto:${user.social[username].value}`;
-      else if (username === "website")
+      else if (username === 'website')
         return `http://${user.social[username].value}`;
-      else if (username === "link")
+      else if (username === 'link')
         return `http://${user.social[username].value}`;
-      else if (username === "linkedin")
+      else if (username === 'linkedin')
         return `http://${username}.com/in/${user.social[username].value}`;
-      else if (username === "whatsapp")
+      else if (username === 'whatsapp')
         return `http://api.${username}.com/send?phone=+92${user.social[username].value}`;
       else return `http://${username}.com/${user.social[username].value}`;
     }
@@ -100,7 +100,7 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
             <div className="row">
               <div
                 className="col-12 text-right pt-2 pl-2 pr-2"
-                onClick={() => setshow("show")}
+                onClick={() => setshow('show')}
               >
                 <img
                   src="https://www.profiles.blue/assets/imgs/qr-code.svg"
@@ -135,7 +135,7 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
                     <ul className="row">
                       {Object.keys(user.social).map(
                         (username) =>
-                          user.social[username].value !== "" && (
+                          user.social[username].value !== '' && (
                             <React.Fragment>
                               <li className="col-12">
                                 <a
@@ -144,25 +144,25 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
                                   target="_blank"
                                   onClick={() => handleClicks(username)}
                                   style={{
-                                    display: "flex",
-                                    justifyContent: "flex-start",
-                                    alignItems: "center",
-                                    width: "100%",
-                                    margin: "auto",
+                                    display: 'flex',
+                                    justifyContent: 'flex-start',
+                                    alignItems: 'center',
+                                    width: '100%',
+                                    margin: 'auto',
                                   }}
                                 >
                                   <img
                                     src={
-                                      username === "address"
-                                        ? "https://www.profiles.blue/assets/imgs/map.png"
+                                      username === 'address'
+                                        ? 'https://www.profiles.blue/assets/imgs/map.png'
                                         : `https://www.profiles.blue/assets/imgs/social-network-${username}.png`
                                     }
                                   />
                                   <div>
                                     <p
                                       style={{
-                                        marginBottom: "0",
-                                        marginLeft: "10px",
+                                        marginBottom: '0',
+                                        marginLeft: '10px',
                                       }}
                                     >
                                       <b>
@@ -178,10 +178,10 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
                               </li>
                               <span
                                 style={{
-                                  borderTop: "1px solid #bdbdbd",
+                                  borderTop: '1px solid #bdbdbd',
                                   // height: '1px',
-                                  width: "100%",
-                                  margin: "auto",
+                                  width: '100%',
+                                  margin: 'auto',
                                 }}
                               ></span>
                             </React.Fragment>
@@ -203,7 +203,7 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
           <div className={`col-12 ${show}`} id="profileQrCon">
             <div
               className="col-12 text-right pt-4 p-0"
-              onClick={() => setshow("")}
+              onClick={() => setshow('')}
             >
               <img
                 src="https://www.profiles.blue/assets/imgs/xclose.png"
