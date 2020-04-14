@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Test
+N;CHARSET=UTF-8:;Test;;;
+UID;CHARSET=UTF-8:5e9022bb379f62001730a73f
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:test@test.com
+PHOTO;TYPE=JPG:https://firebasestorage.googleapis.com/v0/b/blue-f42e7.appspot.com/o/images%2F641173b4-0a87-4461-b75f-77ff78cb65a3.jpg?alt=media&token=0470d555-bb2c-4686-b637-740b0a531d77
+URL;CHARSET=UTF-8:https://profileblue.herokuapp.com/profile/5e9022bb379f62001730a73f
+URL;type=WORK;CHARSET=UTF-8:https://www.instagram.com/Test
+REV:2020-04-10T08:34:00.844Z
+END:VCARD
