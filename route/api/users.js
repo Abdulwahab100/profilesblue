@@ -169,11 +169,12 @@ router.post('/update_clicks/:id', async (req, res) => {
 
 router.get('/vcf/:id', async (req, res) => {
   let { id } = req.params;
+
   try {
     const user = await User.findById(id);
     var vCardsJS = require('vcards-js');
     var vCard = vCardsJS();
-    console.log(user);
+
     if (user._id) vCard.uid = user._id;
     if (user.name) vCard.firstName = user.name;
     if (user.avatarUrl) vCard.photo.attachFromUrl(user.avatarUrl, 'JPEG');
@@ -181,43 +182,22 @@ router.get('/vcf/:id', async (req, res) => {
     if (user.social.address.value)
       vCard.homeAddress.city = user.social.address.value;
     if (user.social.phone.value) vCard.cellPhone = user.social.phone.value;
-    vCard.Url = [
-      'https://profilesblue.herokuapp.com/profile/${user._id}',
-      `https://www.instagram.com/${user.social['instagram'].value}`,
-    ];
     vCard.url = `https://profilesblue.herokuapp.com/profile/${user._id}`;
-
     vCard.workUrl = `https://www.instagram.com/${user.social['instagram'].value}`;
+    vCard.instagramUrl = `https://www.instagram.com/${user.social['instagram'].value}`;
+    // vCard.venmoUrl = `http://venmo.com/${user.social['venmo'].value}`;
+    vCard.snapchatUrl = `http://snapchat.com/add/${user.social['snapchat'].value}`;
+    vCard.twitterUrl = `http://twitter.com/${user.social['twitter'].value}`;
+    vCard.facebookUrl = `http://facebook.com/${user.social['facebook'].value}`;
+    vCard.linkedinUrl = `http://linkedin.com/${user.social['linkedin'].value}`;
+    vCard.youtubeUrl = `http://youtube.com/${user.social['youtube'].value}`;
+    vCard.applemusicUrl = `http://applemusic.com/${user.social['applemusic'].value}`;
+    vCard.spotifyUrl = `http://open.spotify.com/add/${user.social['spotify'].value}`;
+    vCard.websiteUrl = `http://${user.social['website'].value}`;
 
-    Object.keys(user.social).map((social) => {
-      if (
-        social !== 'address' &&
-        social !== 'link' &&
-        social !== 's_email' &&
-        social !== 'website' &&
-        social !== 'phone' &&
-        social !== 'whatsapp'
-      ) {
-        if (social === 'snapchat') {
-          vCard.socialUrls[
-            social
-          ] = `http://open.snapchat.com/add/${user.social['snapchat'].value}`;
-        } else if (user.social[social].value !== '')
-          vCard.socialUrls[
-            social
-          ] = `https://www.${social}.com/${user.social[social].value}`;
-      }
-    });
+    vCard.saveToFile(`./public/${user.email}.vcf`);
 
-    vCard.socialUrls[
-      'Home Page'
-    ] = `https://profilesblue.herokuapp.com/profile/${user._id}`;
-    delete vCard.socialUrls['$init'];
-    vCard.version = '3.0';
-    console.log(vCard);
-    vCard.saveToFile('./public/vcf.vcf');
-
-    res.download('./public/vcf.vcf');
+    res.download(`./public/${user.email}.vcf`);
   } catch (err) {
     res.status(500).send('Server Error');
   }
