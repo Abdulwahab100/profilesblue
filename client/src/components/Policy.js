@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Policy = () => {
   return (
@@ -10,9 +11,15 @@ const Policy = () => {
               <div className="tuto-ttl">
                 <h1>Hello</h1>
                 <span>my name is</span>
-                <a href="register.html">
-                  <i className="fas fa-times-circle"></i>
-                </a>
+                <Link to="/">
+                  <div className="col-12 text-right p-0">
+                    <img
+                      src="https://www.profiles.blue/assets/imgs/xclose.png"
+                      width="25"
+                      alt="QR CODE"
+                    />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

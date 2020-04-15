@@ -1,6 +1,6 @@
-import React from "react";
-import logo from "../assets/imgs/blue-logo.png";
-import { Link } from "react-router-dom";
+import React from 'react';
+import logo from '../assets/imgs/blue-logo.png';
+import { Link } from 'react-router-dom';
 const Terms = () => {
   return (
     <div className="tuto1">
@@ -10,8 +10,14 @@ const Terms = () => {
             <div className="tuto-ttl">
               <h1>Hello</h1>
               <span>my name is</span>
-              <Link to="register">
-                <i className="fas fa-times-circle"></i>
+              <Link to="/">
+                <div className="col-12 text-right p-0">
+                  <img
+                    src="https://www.profiles.blue/assets/imgs/xclose.png"
+                    width="25"
+                    alt="QR CODE"
+                  />
+                </div>
               </Link>
             </div>
           </div>
