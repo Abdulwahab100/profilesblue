@@ -172,7 +172,7 @@ router.get('/vcf/:id', async (req, res) => {
 
   try {
     const user = await User.findById(id);
-    var vCardsJS = require('vcards-js');
+    var vCardsJS = require('./vcards-js');
     var vCard = vCardsJS();
 
     if (user._id) vCard.uid = user._id;
