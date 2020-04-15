@@ -37,7 +37,12 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
     const body = JSON.stringify({ social });
 
     try {
-      await axios.post(`/api/users/update_clicks/${user._id}`, body, config);
+      const u = await axios.post(
+        `/api/users/update_clicks/${user._id}`,
+        body,
+        config
+      );
+      setuser(u.data);
     } catch (err) {}
   };
 
