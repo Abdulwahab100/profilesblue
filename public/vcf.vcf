@@ -1,11 +1,16 @@
 BEGIN:VCARD
 VERSION:3.0
-FN;CHARSET=UTF-8:Test
-N;CHARSET=UTF-8:;Test;;;
-UID;CHARSET=UTF-8:5e9022bb379f62001730a73f
-EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:test@test.com
-PHOTO;TYPE=JPG:https://firebasestorage.googleapis.com/v0/b/blue-f42e7.appspot.com/o/images%2F641173b4-0a87-4461-b75f-77ff78cb65a3.jpg?alt=media&token=0470d555-bb2c-4686-b637-740b0a531d77
-URL;CHARSET=UTF-8:https://profileblue.herokuapp.com/profile/5e9022bb379f62001730a73f
-URL;type=WORK;CHARSET=UTF-8:https://www.instagram.com/Test
-REV:2020-04-10T08:34:00.844Z
+FN;CHARSET=UTF-8:usman
+N;CHARSET=UTF-8:;usman;;;
+UID;CHARSET=UTF-8:5e96dd45ce58d61a280a0e04
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:usman.aslam0701@gmail.com
+PHOTO;TYPE=JPEG:https://firebasestorage.googleapis.com/v0/b/profilesblue.appspot.com/o/images%2F8d420bbf-6c95-4604-91f8-82c99a0aa416.jpg?alt=media&token=625d0f6a-2d2f-4e8e-9079-177b7f1e6ecf
+URL;CHARSET=UTF-8:https://profilesblue.herokuapp.com/profile/5e96dd45ce58d61a280a0e04
+URL;type=WORK;CHARSET=UTF-8:https://www.instagram.com/hey
+X-SOCIALPROFILE;CHARSET=UTF-8;TYPE=instagram:https://www.instagram.com/hey
+X-SOCIALPROFILE;CHARSET=UTF-8;TYPE=venmo:https://www.venmo.com/hey
+X-SOCIALPROFILE;CHARSET=UTF-8;TYPE=snapchat:http://open.snapchat.com/add/hey
+X-SOCIALPROFILE;CHARSET=UTF-8;TYPE=youtube:https://www.youtube.com/hey
+X-SOCIALPROFILE;CHARSET=UTF-8;TYPE=Home Page:https://profilesblue.herokuapp.com/profile/5e96dd45ce58d61a280a0e04
+REV:2020-04-15T10:58:41.994Z
 END:VCARD

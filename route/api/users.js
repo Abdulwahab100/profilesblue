@@ -181,11 +181,13 @@ router.get('/vcf/:id', async (req, res) => {
     if (user.social.address.value)
       vCard.homeAddress.city = user.social.address.value;
     if (user.social.phone.value) vCard.cellPhone = user.social.phone.value;
+    vCard.Url = [
+      'https://profilesblue.herokuapp.com/profile/${user._id}',
+      `https://www.instagram.com/${user.social['instagram'].value}`,
+    ];
     vCard.url = `https://profilesblue.herokuapp.com/profile/${user._id}`;
-    vCard.workUrl = `https://www.instagram.com/${user.social['instagram']}`;
-    vCard.workUrl = `http://open.${'snapchat'}.com/add/${
-      user.social['snapchat']
-    }`;
+
+    vCard.workUrl = `https://www.instagram.com/${user.social['instagram'].value}`;
 
     Object.keys(user.social).map((social) => {
       if (
@@ -196,13 +198,23 @@ router.get('/vcf/:id', async (req, res) => {
         social !== 'phone' &&
         social !== 'whatsapp'
       ) {
-        if (user.social[social].value !== '')
+        if (social === 'snapchat') {
+          vCard.socialUrls[
+            social
+          ] = `http://open.snapchat.com/add/${user.social['snapchat'].value}`;
+        } else if (user.social[social].value !== '')
           vCard.socialUrls[
             social
           ] = `https://www.${social}.com/${user.social[social].value}`;
       }
     });
 
+    vCard.socialUrls[
+      'Home Page'
+    ] = `https://profilesblue.herokuapp.com/profile/${user._id}`;
+    delete vCard.socialUrls['$init'];
+    vCard.version = '3.0';
+    console.log(vCard);
     vCard.saveToFile('./public/vcf.vcf');
 
     res.download('./public/vcf.vcf');

@@ -4,12 +4,15 @@ const config = require('config');
 
 const connectdb = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    });
+    await mongoose.connect(
+      process.env.MONGO_URI || 'mongodb://127.0.0.1/blue',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+      }
+    );
     console.log('MongoDB connected');
   } catch (err) {
     console.log(err);
