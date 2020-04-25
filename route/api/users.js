@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth');
 const nodemailer = require('nodemailer');
@@ -37,7 +36,7 @@ router.post('/register', async (req, res) => {
       },
     };
 
-    jwt.sign(payload, config.get('jwtSecret'), (err, token) => {
+    jwt.sign(payload, process.env.jwtSecret, (err, token) => {
       if (err) throw err;
       res.json({ token });
     });
